@@ -8,5 +8,9 @@ export default [
   {
     path: 'sign-up',
     loadComponent: () => import('../sign-up/sign-up.component')
+  },
+  {
+    path: '**',
+    redirectTo: 'log-in',
   }
 ] as Routes;
