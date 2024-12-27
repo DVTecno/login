@@ -6,6 +6,7 @@ export const routes: Routes = [
     loadChildren: () => import('./auth/features/shell/auth.routes')
   },
   {
-    path: 'dashboard'
+    path: 'dashboard',
+    loadComponent: () => import('./dashboard/dashboard.component')
   }
 ];
