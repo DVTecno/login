@@ -8,6 +8,10 @@ export default [
   {
     path: 'sing-up',
     loadComponent: () => import('../sing-up/sing-up.component')
+  },
+  {
+    path: '**',
+    redirectTo: 'log-in'
   }
 
 ] as Routes
