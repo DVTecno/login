@@ -10,7 +10,10 @@ import { environment } from "../../../environments/environment";
 export default class AuthService {
   constructor(private _http: HttpClient) {}
   signUp(email: string, password: string) :Observable<any> {
-    return this._http.post(`${environment.API_URL}/users`, {email, password});
+    return this._http.post(`${environment.API_URL}/users`, {
+      email,
+       password
+      });
   }
   logIn() {
     console.log('logIn');
