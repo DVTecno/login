@@ -6,8 +6,8 @@ export default [
     loadComponent: () => import('../log-in/log-in.component')
   },
   {
-    path: 'sing-up',
-    loadComponent: () => import('../sing-up/sing-up.component')
+    path: 'sign-up',
+    loadComponent: () => import('../sign-up/sign-up.component')
   },
   {
     path: '**',
