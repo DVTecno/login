@@ -23,4 +23,8 @@ export default class SignUpComponent {
       password: this._formBuilder.nonNullable.control('', [Validators.required]),
     });
   }
+
+  onSubmit() {
+    console.log(this.form.value);
+  }
 }
