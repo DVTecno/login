@@ -25,6 +25,6 @@ export default class SignUpComponent {
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    
   }
 }
