@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 interface LoginForm {
   email: FormControl<string>;
@@ -10,7 +10,7 @@ interface LoginForm {
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './sign-up.component.html',
   styles: ``
 })
