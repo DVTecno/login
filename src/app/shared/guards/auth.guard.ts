@@ -18,6 +18,14 @@ export const privateGuard = (): CanActivateFn => {
 
 export const publicGuard = (): CanActivateFn => {
   return () => {
-    return false;
+    const authState = inject(AuthStateService);
+    const router = inject(Router);
+
+    const session = authState.getSession();
+    if (session) {
+      router.navigateByUrl('/dashboard');
+      return false;
+    }
+    return true;
   }
 }
