@@ -13,4 +13,9 @@ export class AuthService {
     // Implement your signup logic here
     return this._http.post<void>(`${environment.API_URL}/api/auth/signup`, { email, password });
   }
+
+  logIn(email: string, password: string): Observable<void> {
+    // Implement your login logic here
+    return this._http.post<void>(`${environment.API_URL}/api/auth/login`, { email, password });
+  }
 }
