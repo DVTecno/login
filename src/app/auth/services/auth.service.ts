@@ -15,8 +15,11 @@ export class AuthService {
   signUp(email: string, password: string): Observable<{ token: string, refreshToken: string }> {
     return this._http.post<{ token: string, refreshToken: string }>(`${environment.API_URL}/api/auth/signup`, { email, password })
     .pipe(tap((response) => {
-      this._storage.set('token', response.token);
-      this._storage.set('refreshToken', response.refreshToken);
+      const session = {
+        token: response.token,
+        refreshToken: response.refreshToken
+      };
+      this._storage.set('session', JSON.stringify(session));
     }));
   }
 

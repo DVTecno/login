@@ -14,14 +14,13 @@ export class AuthStateService {
   private _storageService = inject(StorageService);
 
   signOut() {
-    this._storageService.remove('token');
-    this._storageService.remove('refreshToken');
+    this._storageService.remove('session');
   }
 
   getSession(): Session | null {
     let currentSession: Session | null = null;
 
-    currentSession = this._storageService.get<Session>('token');
+    currentSession = this._storageService.get<Session>('session');
 
     if (!this._isValidSession(currentSession)) {
       this.signOut();
@@ -34,7 +33,7 @@ export class AuthStateService {
     return (
       typeof maybeSession === 'object' &&
       maybeSession !== null &&
-      'token' in maybeSession && 'refreshToken' in maybeSession
+      'session' in maybeSession
     );
   }
 }
