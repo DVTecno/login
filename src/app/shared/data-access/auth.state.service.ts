@@ -1,5 +1,5 @@
 import { inject, Injectable } from "@angular/core";
-import StorageService from "./storage.service";
+import  {StorageService}  from "./storage.service";
 
 interface Session {
   token: string;
@@ -31,26 +31,10 @@ export class AuthStateService {
   }
 
   private _isValidSession(maybeSession: unknown): boolean {
-    if (
+    return (
       typeof maybeSession === 'object' &&
       maybeSession !== null &&
-      'token' in maybeSession &&
-      'refreshToken' in maybeSession
-    ) {
-      const token = (maybeSession as Session).token;
-      return this._isTokenValid(token);
-    }
-    return false;
+      'token' in maybeSession && 'refreshToken' in maybeSession
+    );
   }
-
-  private _isTokenValid(token: string): boolean {
-    try {
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      const now = Math.floor(Date.now() / 1000);
-      return payload.exp > now;
-    } catch {
-      return false;
-    }
-  }
-
 }

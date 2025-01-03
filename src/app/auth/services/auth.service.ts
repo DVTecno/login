@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap} from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { StorageService } from '../../shared/data-access/storage.service';
+import  {StorageService}  from '../../shared/data-access/storage.service';
 
 @Injectable({
   providedIn: 'root'
