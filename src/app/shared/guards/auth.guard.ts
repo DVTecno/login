@@ -8,11 +8,12 @@ export const privateGuard = (): CanActivateFn => {
     const router = inject(Router);
 
     const session = authState.getSession();
-    if (!session) {
-      router.navigateByUrl('/auth/log-in');
-      return false;
+    if (session) {
+      return true;
     }
-    return true;
+
+    router.navigateByUrl('/auth/log-in');
+    return false;
   }
 }
 
@@ -26,6 +27,7 @@ export const publicGuard = (): CanActivateFn => {
       router.navigateByUrl('/dashboard');
       return false;
     }
+
     return true;
   }
 }
