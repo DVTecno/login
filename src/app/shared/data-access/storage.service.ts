@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
   providedIn: 'root'
 })
 
-export class StorageService {
+export default class StorageService {
   private _storage = localStorage;
 
   get<T>(key: string): T | null {

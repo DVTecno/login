@@ -1,5 +1,5 @@
 import { inject, Injectable } from "@angular/core";
-import { StorageService } from "./storage.service";
+import StorageService from "./storage.service";
 
 interface Session {
   token: string;
